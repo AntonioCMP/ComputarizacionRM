@@ -10,12 +10,12 @@ public class FrecuenciaCardiaca{
         this.hoy = hoy;
     }
 
-    public int obtenerEdadAnios(int anioHoy, FechaNacimiento fecha){
-        return anioHoy - fecha.anio;
+    public int obtenerEdadAnios(int anioHoy, int anioNacimiento){
+        return anioHoy - anioNacimiento;
     }
 
-    public int calcularFrecuenciaCardiacaMaxima(FechaNacimiento fecha){
-        return 220- fecha.anio;
+    public int calcularFrecuenciaCardiacaMaxima(int anioNacimiento){
+        return 220- anioNacimiento;
     }
 
     public String obtenerFrecEsp(int frecMaxima){

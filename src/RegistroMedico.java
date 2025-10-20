@@ -6,7 +6,7 @@
 
     private String nombre;
     private String apellido;
-    private boolean sexo;
+    private int sexo;
     private int altura;
     private float peso;
     private FechaNacimiento fecha;
@@ -27,11 +27,11 @@
         this.apellido = apellido;
     }
 
-    public boolean isSexo() {
+    public int getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(int sexo) {
         this.sexo = sexo;
     }
 
