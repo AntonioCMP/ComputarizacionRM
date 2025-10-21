@@ -1,6 +1,22 @@
 public class FrecuenciaCardiaca{
 
     private int hoy;
+    private FechaNacimiento fechaNacimiento;
+
+    //Constructor principal
+    public FrecuenciaCardiaca(int hoy, FechaNacimiento fechaNacimiento) {
+        this.hoy = hoy;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    //Getters y Setters
+    public FechaNacimiento getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(FechaNacimiento fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
 
     public int getHoy() {
         return hoy;
@@ -10,12 +26,15 @@ public class FrecuenciaCardiaca{
         this.hoy = hoy;
     }
 
-    public int obtenerEdadAnios(int anioHoy, int anioNacimiento){
+
+    //Metodos propios de la clase
+    public int obtenerEdadAnios(int anioHoy, FechaNacimiento fechaNacimiento){
+        int anioNacimiento= fechaNacimiento.getAnio();
         return anioHoy - anioNacimiento;
     }
 
-    public int calcularFrecuenciaCardiacaMaxima(int anioNacimiento){
-        return 220- anioNacimiento;
+    public int calcularFrecuenciaCardiacaMaxima(int edad){
+        return 220- edad;
     }
 
     public String obtenerFrecEsp(int frecMaxima){

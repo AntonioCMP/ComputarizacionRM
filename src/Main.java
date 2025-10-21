@@ -1,5 +1,4 @@
 
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -7,42 +6,56 @@ public class Main {
     public static void main(String[] args) {
 
         LocalDateTime hoy = LocalDateTime.now();
-        FechaNacimiento fechaNacimiento = new FechaNacimiento();
-        FrecuenciaCardiaca frecuenciaCardiaca = new FrecuenciaCardiaca();
-        RegistroMedico registroMedico = new RegistroMedico();
         Scanner sc = new Scanner(System.in);
 
-
+        String nombre,apellido;
+        int anio,mes,dia,sexo,altura;
+        float peso;
         int anioAhora= hoy.getYear();
+
 
         // Ingreso de datos del usuarios
         System.out.println("Ingrese los datos del usuario");
         System.out.println("Nombre del usuario: ");
-        registroMedico.setNombre(sc.nextLine());
-
+        nombre= sc.nextLine();
 
         System.out.println("Apellido del usuario: ");
-        registroMedico.setApellido(sc.nextLine());
+        apellido= sc.nextLine();
 
 
         System.out.println("Sexo (0 mujer, 1 hombre): ");
-        registroMedico.setSexo(sc.nextInt());
-
+        sexo=sc.nextInt();
 
         System.out.println("Fecha de nacimiento");
         System.out.println("Dia: ");
-        fechaNacimiento.setDia(sc.nextInt());
+        dia= sc.nextInt();
+
         System.out.println("Mes: ");
-        fechaNacimiento.setMes(sc.nextInt());
+        mes= sc.nextInt();
+
         System.out.println("Año: ");
-        fechaNacimiento.setAnio(sc.nextInt());
+        anio= sc.nextInt();
 
         System.out.println("Altura en cm: ");
-        registroMedico.setAltura(sc.nextInt());
+        altura= sc.nextInt();
 
         System.out.println("Peso en kg: ");
-        registroMedico.setPeso(sc.nextInt());
+        peso= sc.nextFloat();
 
+        FechaNacimiento fechaNacimiento = new FechaNacimiento(dia,mes,anio);
+        FrecuenciaCardiaca frecuenciaCardiaca = new FrecuenciaCardiaca(anioAhora,fechaNacimiento);
 
+        int edad= frecuenciaCardiaca.obtenerEdadAnios(anioAhora,fechaNacimiento);
+        int frecMax= frecuenciaCardiaca.calcularFrecuenciaCardiacaMaxima(edad);
+        String frecEsper= frecuenciaCardiaca.obtenerFrecEsp(frecMax);
+
+        String bmiString = RegistroMedico.calcularBMIS(altura, peso);
+        float bmiFloat = RegistroMedico.calcularBMIF(altura, peso);
+        int bmiInt = Math.round(bmiFloat);
+
+        RegistroMedico registroMedico = new RegistroMedico(nombre, apellido, sexo, altura,
+                peso, frecMax, fechaNacimiento, frecEsper, bmiString, bmiInt);
+
+        System.out.println(registroMedico.mostrarFichaPaciente());
         }
     }

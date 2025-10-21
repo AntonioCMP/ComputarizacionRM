@@ -6,6 +6,14 @@ public class FechaNacimiento {
     private int dia;
     private int anio;
 
+    //Constructor principal
+    public FechaNacimiento(int mes, int dia, int anio){
+        this.mes = mes;
+        this.dia = dia;
+        this.anio = anio;
+    }
+
+    //Getters y Setters
     public int getMes() {
         return mes;
     }
@@ -29,4 +37,10 @@ public class FechaNacimiento {
     public void setAnio(int anio) {
         this.anio = anio;
     }
+
+    //Metodo para mostrar la fecha como string
+    public String mostrarFecha(){
+        return mes + "/" + dia + "/" + anio;
+    }
+
 }
