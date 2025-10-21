@@ -111,6 +111,7 @@
         return this.peso / (alturaM * alturaM);
     }
 
+
     public String mostrarFichaPaciente(){
         String fecha = "Ficha Paciente" + "\n"+
                 "Nombre del paciente: "+ nombre+ "\n" +

@@ -7,11 +7,17 @@ public class FrecuenciaCardiaca{
 
     private int hoy;
     private FechaNacimiento fechaNacimiento;
+    private String nombre;
+    private String apellido;
 
     //Constructor principal
-    public FrecuenciaCardiaca(int hoy, FechaNacimiento fechaNacimiento) {
+
+
+    public FrecuenciaCardiaca(int hoy, FechaNacimiento fechaNacimiento, String nombre, String apellido) {
         this.hoy = hoy;
         this.fechaNacimiento = fechaNacimiento;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
     //Getters y Setters

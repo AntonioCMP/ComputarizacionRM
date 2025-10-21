@@ -71,7 +71,7 @@ public class Main {
         }
 
         FechaNacimiento fechaNacimiento = new FechaNacimiento(dia,mes,anio);
-        FrecuenciaCardiaca frecuenciaCardiaca = new FrecuenciaCardiaca(anioAhora,fechaNacimiento);
+        FrecuenciaCardiaca frecuenciaCardiaca = new FrecuenciaCardiaca(anioAhora,fechaNacimiento,nombre,apellido);
 
         int edad= frecuenciaCardiaca.obtenerEdadAnios(anioAhora,fechaNacimiento);
         int frecMax= frecuenciaCardiaca.calcularFrecuenciaCardiacaMaxima(edad);
