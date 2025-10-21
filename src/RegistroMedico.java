@@ -11,13 +11,11 @@
     private float peso;
     private FechaNacimiento fecha;
     private int frecuenciaCardiacaMaxima;
-    private String frecuenciaCardiacaEsperada;
-    private String bmi;
-    private int bmiInt;
+    private String frecuenciaCardiacaEsperada;;
 
     public RegistroMedico(String nombre, String apellido, int sexo,
                           int altura, float peso, int frecuenciaCardiacaMaxima,
-                          FechaNacimiento fecha, String frecuenciaCardiacaEsperada,String bmi, int bmiInt) {
+                          FechaNacimiento fecha, String frecuenciaCardiacaEsperada) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.sexo = sexo;
@@ -26,24 +24,6 @@
         this.frecuenciaCardiacaMaxima = frecuenciaCardiacaMaxima;
         this.fecha = fecha;
         this.frecuenciaCardiacaEsperada = frecuenciaCardiacaEsperada;
-        this.bmi = bmi;
-        this.bmiInt = bmiInt;
-    }
-
-    public String getBmi() {
-        return bmi;
-    }
-
-    public void setBmi(String bmi) {
-        this.bmi = bmi;
-    }
-
-    public int getBmiInt() {
-        return bmiInt;
-    }
-
-    public void setBmiInt(int bmiInt) {
-        this.bmiInt = bmiInt;
     }
 
     public String getNombre() {
@@ -112,9 +92,9 @@
 
     //Metodos de para mostrar toda la informacion de los pacientes
 
-    public static String calcularBMIS(int altura, float peso) {
-        float alturaM = (float) altura / 100;
-        float bmi = peso / (alturaM * alturaM);
+    public String calcularBMIS() {
+        float alturaM = (float) this.altura / 100;
+        float bmi = this.peso / (alturaM * alturaM);
 
         if (bmi < 18.5) {
             return "Bajo peso";
@@ -126,9 +106,9 @@
             return "Obeso";
     }}
 
-    public static float calcularBMIF(int altura, float peso) {
-        float alturaM = (float) altura / 100;
-        return peso / (alturaM * alturaM);
+    public float calcularBMIF() {
+        float alturaM = (float) this.altura / 100;
+        return this.peso / (alturaM * alturaM);
     }
 
     public String mostrarFichaPaciente(){
@@ -136,10 +116,10 @@
                 "Nombre del paciente: "+ nombre+ "\n" +
                 "Apellido del paciente: " +apellido+ "\n"+
                 "Sexo del paciente: "+ sexo+ "\n"+
-                "Fecha de nacimiento"+
+                "Fecha de nacimiento"+ "\n"+
                 "Altura del paciente: "+ altura+ "\n"+
                 "Peso del paciente: "+ peso+ "\n"+
-                "Indice de masa corporal: "+ bmi+ "("+bmiInt +")"+ "\n"+
+                "Indice de masa corporal: "+ calcularBMIS()+ "("+calcularBMIF() +")"+ "\n"+
                 "Frecuencia Cardiaca Maxima: "+ frecuenciaCardiacaMaxima+ "\n"+
                 "Frecuencia Cardiaca Esperada: "+ frecuenciaCardiacaEsperada + "\n";
         return fecha;

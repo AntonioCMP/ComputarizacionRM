@@ -1,5 +1,6 @@
 
-
+/** Clase que contiene la fecha y el metodo para poder mostrar
+ * la fecha de hoy como String compuesto de mes dia año*/
 public class FechaNacimiento {
 
     private int mes;

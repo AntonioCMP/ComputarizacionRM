@@ -1,3 +1,8 @@
+
+/** Clase de frecuencia cardiaca que recibe solo le fecha de hoy
+ * y tambien el objeto fecha para con sus metodos poder obtener la edad
+ * y tambien la frec esperada y maxima del paciente*/
+
 public class FrecuenciaCardiaca{
 
     private int hoy;
